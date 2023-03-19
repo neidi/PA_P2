@@ -9,6 +9,14 @@ struct Node
     struct Node *next;
 };
 
+void addNode(int data)
+{
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node)); // Speicherplatz für neuen Knoten reservieren
+    newNode->data = data;                                              // Daten im Knoten speichern
+    newNode->next = head;                                              // Neuen Knoten als Startknoten der Liste einfügen
+    head = newNode;                                                    // Head auf neuen Knoten setzen
+}
+
 void printList()
 {
     struct Node *currentNode = head; // Aktueller Knoten als Kopie des Startknotens initialisieren
@@ -21,17 +29,22 @@ void printList()
     printf("\n");
 }
 
+void deleteList()
+{
+    struct Node *currentNode = head;
+    while (currentNode != NULL)
+    {                                              // Solange der aktuelle Knoten nicht der Endknoten ist
+        struct Node *nextNode = currentNode->next; // Nächsten Knoten speichern
+        free(currentNode);                         // Aktuellen Knoten löschen
+        currentNode = nextNode;                    // Nächsten Knoten als aktuellen Knoten setzen
+    }
+    head = NULL; // Head auf NULL setzen, um zu signalisieren, dass die Liste leer ist
+}
+
 void main()
 {
-    struct Node *node1 = malloc(sizeof(struct Node));
-    struct Node *node2 = malloc(sizeof(struct Node));
-
-    node1->data = 42;
-    node2->data = 24;
-
-    node1->next = node2;
-    node2->next = NULL;
-    head = node1;
-
+    addNode(24);
+    addNode(42);
+    deleteNode(&head, 42);
     printList();
 }
