@@ -27,6 +27,24 @@ Node *create_node(int data)
     return new_node;
 }
 
+void push(List *list, int data)
+{
+    Node *new_node = create_node(data);
+
+    if (list->head == NULL)
+    {
+        new_node->next = NULL;
+        list->head = new_node;
+        list->tail = new_node;
+        return;
+    }
+
+    new_node->next = list->head;
+    list->head->prev = new_node;
+    list->head = new_node;
+    list->size++;
+}
+
 // Funktion zum Einfügen eines neuen Knotens am Ende der Liste
 void append(List *list, int data)
 {
@@ -74,6 +92,17 @@ int main()
     append(list, 3);
     // Liste ausgeben
     printList(list);
+
+    List *list2 = (List *)malloc(sizeof(List));
+    list2->head = NULL;
+    list2->tail = NULL;
+    list2->size = 0;
+    push(list2, 3);
+    push(list2, 2);
+    push(list2, 1);
+
+    // Liste ausgeben
+    printList(list2);
 
     return 0;
 }
