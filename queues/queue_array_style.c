@@ -12,40 +12,59 @@ typedef struct
 
 Queue *createQueue()
 {
-    // TODO
+    Queue *queue = malloc(sizeof(Queue));
+    queue->front = 0;
+    queue->rear = 0;
+    return queue;
 }
 
 int isFull(Queue *queue)
 {
-    // TODO
+    return queue->rear >= MAX_SIZE;
 }
 
 int isEmpty(Queue *queue)
 {
-    // TODO
+    return queue->rear == -1 || queue->front == queue->rear;
 }
 
 void enqueue(Queue *queue, int value)
 {
-    // TODO
+    if (isFull(queue))
+    {
+        printf("Error: queue overflow!\n");
+        return;
+    }
+    queue->elements[queue->rear++] = value;
+    printf("enqueued %d\n", value);
 }
 
 int dequeue(Queue *queue)
 {
-    // TODO
+
+    if (isEmpty(queue))
+    {
+        printf("Error: queue is empty!\n");
+        queue->front = -1;
+        queue->rear = -1;
+        return -1;
+    }
+    int frontElement = queue->elements[queue->front];
+    queue->front++;
+    printf("dequeueing %d\n", frontElement);
+    return frontElement;
 }
 
 void main()
 {
-    // TODO: Nachfolgender Code sollte (wenn er nicht mehr auskommentiert ist) lauffähig sein
-    // Queue *queue = createQueue();
-    // enqueue(queue, 5);
-    // enqueue(queue, 17);
-    // enqueue(queue, 1);
-    // enqueue(queue, 1); // should print error
+    Queue *queue = createQueue();
+    enqueue(queue, 5);
+    enqueue(queue, 17);
+    enqueue(queue, 1);
+    enqueue(queue, 1); // should print error
 
-    // dequeue(queue);
-    // dequeue(queue);
-    // dequeue(queue);
-    // dequeue(queue); // should print error;
+    dequeue(queue);
+    dequeue(queue);
+    dequeue(queue);
+    dequeue(queue); // should print error;
 }
