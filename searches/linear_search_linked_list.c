@@ -50,16 +50,14 @@ void append(List *list, int data)
 int linearSearch(List *list, int target)
 {
     Node *current = list->head;
-    for (int i = 0; i < list->size; i++)
+    int index = 0;
+    while (current != NULL)
     {
-        if (current == NULL)
-        {
-            return -1;
-        }
         if (current->data == target)
-            return i;
+            return index;
 
         current = current->next;
+        index++;
     }
     return -1; // Ziel nicht gefunden, -1 zurückgeben
 }
