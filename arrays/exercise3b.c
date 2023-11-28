@@ -3,13 +3,29 @@
 // Ergänze die Funktion, sodass sie das Minimum des Arrays berechnet
 int minimum(int arr[], int size)
 {
-    return 0;
+    int min = 20;
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] < min)
+        {
+            min = arr[i];
+        }
+    }
+    return min;
 }
 
 // Ergänze die Funktion, sodass sie das Maximum des Arrays berechnet
 int maximum(int arr[], int size)
 {
-    return 0;
+    int max = 0;
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+    }
+    return max;
 }
 
 int main()
