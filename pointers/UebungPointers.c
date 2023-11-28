@@ -3,11 +3,17 @@
 /**
  * Schreibe eine Funktion "add", die zwei Zahlen miteinander addiert und das Resultat zurückgibt.
 */
+int add(int num1, int num2) {
+  return num1 + num2;
+}
 
 /**
  * Schreibe eine Funktion "apply", die zwei Zahlen und einen Zeiger auf eine Funktion mit zwei Zahlen
  * entgegennimmt und die Funktion mit den zwei Zahlen aufruft und das Resultat zurückgibt.
 */
+int apply(int num1, int num2, int (*func)(int, int)) {
+  return (*func)(num1, num2);
+}
 
 /**
  * Schreibe eine Funktion "main", die einen Pointer auf die Funktion "add" definiert und danach die Funktion
@@ -17,9 +23,10 @@
  * printf("Ergebnis = %d\n", result);
 */
 int main() {
+  int result;
+  int (*add_ptr)(int, int) = add;
 
-
-  
+  result = apply(2, 3, add_ptr);
   printf("Ergebnis = %d\n", result);
 
   return 0;
