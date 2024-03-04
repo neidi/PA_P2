@@ -1,4 +1,6 @@
-void main()
+#include <stdio.h>
+
+int main()
 {
     char *bookTitles[] = {
         "Der kleine Prinz",
@@ -11,4 +13,6 @@ void main()
 
     // Ändere den Wert "Harry Potter und der Stein der Weisen" im Array auf
     // "Harry Potter und die Kammer des Schreckens" und gib nochmals alle Werte des Arrays aus.
+
+    return 0;
 }

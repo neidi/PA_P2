@@ -1,4 +1,6 @@
-void main()
+#include <stdio.h>
+
+int main()
 {
     // Initialisiere das folgende Array mit kompletter Initialisierung mit Werten deiner Wahl
     int indexPlusOne[5];
@@ -11,4 +13,6 @@ void main()
 
     // Initialisiere das folgende Array per for-Schleife
     float values[5];
+
+    return 0;
 }
