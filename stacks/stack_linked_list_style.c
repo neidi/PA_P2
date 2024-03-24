@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 // implementiere eine Struct für ein Element eines Stacks
@@ -10,7 +11,7 @@ typedef struct element
 // implementiere den Stack selber, welcher auf das jetzige Element zeigt
 typedef struct stack
 {
-    struct element *top;
+    Element *top;
 } Stack;
 
 // implementiere eine Funktion, welche ein Element mit der angegebenen Ganzzahl kreiert
@@ -19,6 +20,8 @@ Element *create_element(int data)
     Element *element = malloc(sizeof(Element));
     element->previous = NULL;
     element->data = data;
+
+    return element;
 }
 
 // implementiere eine Funktion, die ein Element auf den Stack legt.
@@ -27,7 +30,7 @@ void push(Stack *stack, int data)
     Element *new = create_element(data);
     if (stack->top == NULL)
     {
-        stack->top == new;
+        stack->top = new;
         return;
     }
 
@@ -45,14 +48,24 @@ int pop(Stack *stack)
     return data;
 }
 
-// kreiere einen Stack, lege drei Elemente mit den Werten 3, 4 und 5 darauf und pope sie nacheinander vom Stack. Gib die ausgelesenen Werte aus.
-void main()
+int peek(Stack *stack)
 {
-    // Stack *stack = malloc(sizeof(Stack));
-    // push(stack, 3);
-    // push(stack, 4);
-    // push(stack, 5);
-    // printf("Current stack element: %d\n", pop(stack));
-    // printf("Current stack element: %d\n", pop(stack));
-    // printf("Current stack element: %d\n", pop(stack));
+    int data = stack->top->data;
+    return data;
+}
+
+int main()
+{
+    Stack *stack = malloc(sizeof(Stack));
+    push(stack, 3);
+    push(stack, 4);
+    push(stack, 5);
+    printf("Current stack element (peeked): %d\n", peek(stack));
+    printf("Current stack element: %d\n", pop(stack));
+    printf("Current stack element (peeked): %d\n", peek(stack));
+    printf("Current stack element: %d\n", pop(stack));
+    printf("Current stack element (peeked): %d\n", peek(stack));
+    printf("Current stack element: %d\n", pop(stack));
+
+    return 0;
 }
