@@ -7,7 +7,22 @@
 
 void selectionSort(int array[], int size)
 {
-    // TODO: SelectionSort entwickeln
+    int p = size - 1;
+    while (p > 0)
+    {
+        int max = 0;
+        for (int i = 0; i <= p; i++)
+        {
+            if (array[i] > array[max])
+            {
+                max = i;
+            }
+        }
+        int tempP = array[p];
+        array[p] = array[max];
+        array[max] = tempP;
+        p--;
+    }
 }
 
 void testCases()
