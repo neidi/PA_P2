@@ -14,8 +14,14 @@ void setupList(List* list)
     append(list, 20);
 }
 
+void sort(List* list){
+}
+
 int main(){
     List* list = (List*)malloc(sizeof(List));
     setupList(list);
     testCasesUnorderedList(list);
+
+    sort(list);
+    testCasesOrderedList(list);
 }

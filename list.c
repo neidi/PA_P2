@@ -63,5 +63,21 @@ void testCasesUnorderedList(List* list){
     assert(list->tail == elementAt(list, 7));
     assert(list->size == 8);
 
-    printf("congratulations all tests passed");
+    printf("congratulations all tests for the unordered list passed");
+}
+
+void testCasesOrderedList(List* list){
+    assert(list->head->data == 3);
+    assert(elementAt(list, 0)->data == 3);
+    assert(elementAt(list, 1)->data == 5);
+    assert(elementAt(list, 2)->data == 7);
+    assert(elementAt(list, 3)->data == 16);
+    assert(elementAt(list, 4)->data == 17);
+    assert(elementAt(list, 5)->data == 19);
+    assert(elementAt(list, 6)->data == 20);
+    assert(elementAt(list, 7)->data == 23);
+    assert(list->tail == elementAt(list, 7));
+    assert(list->size == 8);
+
+    printf("congratulations all tests for the ordered list passed");
 }
