@@ -63,7 +63,7 @@ void testCasesUnorderedList(List* list){
     assert(list->tail == elementAt(list, 7));
     assert(list->size == 8);
 
-    printf("congratulations all tests for the unordered list passed");
+    printf("congratulations all tests for the unordered list passed\n");
 }
 
 void testCasesOrderedList(List* list){
@@ -79,5 +79,30 @@ void testCasesOrderedList(List* list){
     assert(list->tail == elementAt(list, 7));
     assert(list->size == 8);
 
-    printf("congratulations all tests for the ordered list passed");
+    printf("congratulations all tests for the ordered list passed\n");
+}
+
+void setupList(List* list)
+{
+    append(list, 3);
+    append(list, 19);
+    append(list, 7);
+    append(list, 17);
+    append(list, 23);
+    append(list, 16);
+    append(list, 5);
+    append(list, 20);
+}
+
+void sort(List* list){
+    // TODO: implementieren der Sortierfunktion
+}
+
+int main(){
+    List* list = (List*)malloc(sizeof(List));
+    setupList(list);
+    testCasesUnorderedList(list);
+
+    sort(list);
+    testCasesOrderedList(list);
 }
