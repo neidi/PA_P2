@@ -54,7 +54,6 @@ void testCasesDequeue(Queue* queue){
     assert(queue->front->data == 1);
     dequeue(queue);
     assert(queue->size == 0);
-    dequeue(queue);
 
     printf("congratulations all tests for dequeueing passed\n");
 }
@@ -64,6 +63,7 @@ int main()
     Queue *queue = (Queue *)malloc(sizeof(Queue));
     testCasesEnqueue(queue);
     testCasesDequeue(queue);
+    dequeue(queue);
 
     return -1;
 }
