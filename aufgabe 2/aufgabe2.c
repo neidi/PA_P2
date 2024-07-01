@@ -61,6 +61,9 @@ void testCasesDequeue(Queue* queue){
 int main()
 {
     Queue *queue = (Queue *)malloc(sizeof(Queue));
+    queue->size = 0;
+    queue->front = NULL;
+    queue->rear = NULL;
     testCasesEnqueue(queue);
     testCasesDequeue(queue);
     dequeue(queue);
