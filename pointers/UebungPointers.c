@@ -4,12 +4,17 @@
 /**
  * Schreibe eine Funktion "add", die zwei Zahlen miteinander addiert und das Resultat zurückgibt.
 */
-
+long add(int summand1, int summand2) {
+    return (long) summand1 + summand2;
+}
 
 /**
  * Schreibe eine Funktion "apply", die zwei Zahlen und einen Zeiger auf eine Funktion mit zwei Zahlen
  * entgegennimmt und die Funktion mit den zwei Zahlen aufruft und das Resultat zurückgibt.
 */
+long apply(int summand1, int summand2, long(*func)(int, int)) {
+    return (*func)(summand1, summand2);
+}
 
 
 void tests() {
