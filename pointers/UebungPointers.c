@@ -19,15 +19,10 @@ void tests() {
     assert(apply(1, 2, add) == 3);
     assert(apply(100, 3, add) == 103);
     assert(apply(2147483647, 2147483647, add) == 4294967294L);
+
+    printf("Gratuliere, alle Tests sind grün!");
 }
 
-/**
- * Schreibe eine Funktion "main", die einen Pointer auf die Funktion "add" definiert und danach die Funktion
- * "apply" mit zwei Zahlen und dem vorher definierten Pointer aufruft und das Resultat in einer Variable
- * namens "result" speichert.
- * Rufe danach die folgende Funktion auf, um den Wert auszugeben:
- * printf("Ergebnis = %d\n", result);
-*/
 int main() {
     tests();
 
