@@ -1,17 +1,20 @@
 #include <stdio.h>
+#include <assert.h>
 
 // Ergänze die Funktion, sodass sie den Durchschnittswert des Arrays berechnet
-double min(int arr[], int size)
-{
-    return (double)1;
+double avg(int arr[], int size) {
+    return (double) 1;
 }
 
-int main()
-{
+void tests() {
     int myArray[] = {1, 2, 3, 4, 5};
-    int arraySize = sizeof(myArray) / sizeof(myArray[0]);
-    double avg = min(myArray, arraySize);
+    assert(avg(myArray, 5) == 3);
 
-    printf("Durchschnitt: %.2f", avg);
+    int anotherArray[] = {5, 13, 18, 4, 56, 102};
+    assert(avg(anotherArray, 6) == 33);
+}
+
+int main() {
+    tests();
     return 0;
 }
