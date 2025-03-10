@@ -2,8 +2,13 @@
 #include <assert.h>
 
 // Ergänze die Funktion, sodass sie den Durchschnittswert des Arrays berechnet
-double avg(int arr[], int size) {
-    return (double) 1;
+double avg(const int arr[], int size) {
+    int sum = 0;
+    for(int i = 0; i < size; i++){
+        sum += arr[i];
+    }
+
+    return (double) sum/size;
 }
 
 void tests() {

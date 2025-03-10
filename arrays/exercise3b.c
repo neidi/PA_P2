@@ -4,13 +4,27 @@
 // Ergänze die Funktion, sodass sie das Minimum des Arrays berechnet
 int minimum(int arr[], int size)
 {
-    return 0;
+    int min = 2147483647;
+    for(int i = 0; i < size; i++){
+        if(arr[i] < min){
+            min = arr[i];
+        }
+    }
+
+    return min;
 }
 
 // Ergänze die Funktion, sodass sie das Maximum des Arrays berechnet
 int maximum(int arr[], int size)
 {
-    return 0;
+    int max = -2147483648;
+    for(int i = 0; i < size; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+
+    return max;
 }
 
 void tests()
@@ -23,6 +37,7 @@ void tests()
     assert(minimum(anotherArray, 5) == 2);
     assert(maximum(anotherArray, 5) == 102);
 }
+
 int main()
 {
     tests();
