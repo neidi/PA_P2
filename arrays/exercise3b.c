@@ -25,6 +25,7 @@ void tests()
 }
 int main()
 {
+    tests();
     int myArray[] = {1, 2, 3, 4, 5};
     int arraySize = sizeof(myArray) / sizeof(myArray[0]);
     int min = minimum(myArray, arraySize);
