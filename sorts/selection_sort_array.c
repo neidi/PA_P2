@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <assert.h>
 
+#define RESET   "\033[0m"
+#define GREEN   "\033[32m"      /* Green */
+
 void selectionSort(int array[], int size)
 {
     // TODO: SelectionSort entwickeln
@@ -21,7 +24,7 @@ void testCases()
     assert(array[6] == 7);
     assert(array[7] == 9);
 
-    printf("tests passed, great job!");
+    printf(GREEN "tests passed, great job!" RESET);
 }
 
 int main()
