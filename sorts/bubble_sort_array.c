@@ -5,13 +5,19 @@
 #define RESET   "\033[0m"
 #define GREEN   "\033[32m"      /* Green */
 
-void bubbleSort(int array[], int size)
-{
-    // TODO: BubbleSort entwickeln
+void bubbleSort(int array[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                int curr = array[j + 1];
+                array[j + 1] = array[j];
+                array[j] = curr;
+            }
+        }
+    }
 }
 
-void testCases()
-{
+void testCases() {
     int array[] = {3, 6, 1, 5, 5, 7, 2, 9};
     int size = sizeof(array) / sizeof(array[0]);
     bubbleSort(array, size);
@@ -27,8 +33,7 @@ void testCases()
     printf(GREEN "tests passed, great job!" RESET);
 }
 
-int main()
-{
+int main() {
     testCases();
 
     return 0;
