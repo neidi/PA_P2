@@ -5,13 +5,17 @@
 #define RESET   "\033[0m"
 #define GREEN   "\033[32m"      /* Green */
 
+void swap(int *first, int *second) {
+    int temp = *first;
+    *first = *second;
+    *second = temp;
+}
+
 void bubbleSort(int array[], int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
             if (array[j] > array[j + 1]) {
-                int curr = array[j + 1];
-                array[j + 1] = array[j];
-                array[j] = curr;
+                swap(&array[j], &array[j + 1]);
             }
         }
     }
