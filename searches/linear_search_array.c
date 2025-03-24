@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#define RESET   "\033[0m"
+#define GREEN   "\033[32m"      /* Green */
+
 
 const int NO_KEY = -1;
 
@@ -24,7 +27,7 @@ void testCases()
     assert(linearSearch(second, 0, 18) == NO_KEY);
     assert(linearSearch(second, -1, 73) == NO_KEY);
 
-    printf("tests passed, great job!");
+    printf( GREEN "tests passed, great job!" RESET);
 }
 
 int main()
