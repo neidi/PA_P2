@@ -55,6 +55,9 @@ void add(List *list, int value) {
     list->size++;
 }
 
+void removeAt(List* list, int index){
+}
+
 void testCases() {
     List *list = malloc(sizeof(List));
     list->head = NULL;
@@ -66,6 +69,12 @@ void testCases() {
     assert(list->head->next->data == 5);
     assert(list->head->next->next->data == 10);
     assert(list->size == 3);
+
+    removeAt(list, 1);
+
+    assert(list->head->data == 3);
+    assert(list->head->next->data == 10);
+    assert(list->size == 2);
 
     printf(GREEN "tests passed, great job!" RESET);
 }
