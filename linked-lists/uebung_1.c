@@ -39,6 +39,20 @@ void append(List *list, int value) {
 }
 
 void add(List *list, int value) {
+    if (list->head == NULL) {
+        list->head = malloc(sizeof(Node));
+        list->head->next = NULL;
+        list->head->data = value;
+        list->size = 1;
+        return;
+    }
+
+    Node *previousHead = list->head;
+    Node *newNode = malloc(sizeof(Node));
+    newNode->next=previousHead;
+    newNode->data = value;
+    list->head = newNode;
+    list->size++;
 }
 
 void testCases() {
