@@ -56,6 +56,26 @@ void add(List *list, int value) {
 }
 
 void removeAt(List* list, int index){
+    if (list == NULL || index < 0 || index >= list->size) {
+        return; // Ungültiger Index oder leere Liste
+    }
+
+    Node* temp;
+    if (index == 0) {
+        temp = list->head;
+        list->head = list->head->next;
+        free(temp);
+    } else {
+        Node* current = list->head;
+        for (int i = 0; i < index - 1; i++) {
+            current = current->next;
+        }
+        temp = current->next;
+        current->next = current->next->next;
+        free(temp);
+    }
+
+    list->size--;
 }
 
 void testCases() {
