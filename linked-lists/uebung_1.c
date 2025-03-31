@@ -1,37 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
-struct Node *head = NULL; // Startknoten der Liste
+#define RESET   "\033[0m"
+#define GREEN   "\033[32m"      /* Green */
 
-struct Node
-{
+typedef struct node {
     int data;
-    struct Node *next;
-};
+    struct node *next;
+} Node;
 
-void printList()
-{
-    struct Node *currentNode = head; // Aktueller Knoten als Kopie des Startknotens initialisieren
-    printf("Liste: ");
-    while (currentNode != NULL)
-    {                                     // Solange der aktuelle Knoten nicht der Endknoten ist
-        printf("%d ", currentNode->data); // Daten des aktuellen Knotens ausgeben
-        currentNode = currentNode->next;  // Nächsten Knoten als aktuellen Knoten setzen
+typedef struct list {
+    int size;
+    Node *head;
+} List;
+
+void appendNode(List *list, Node *node, int value) {
+    if (node->next == NULL) {
+        node->next = malloc(sizeof(Node));
+        node->next->data = value;
+        list->size++;
+        return;
     }
-    printf("\n");
+
+    appendNode(list, node->next, value);
 }
 
-void main()
-{
-    struct Node *node1 = malloc(sizeof(struct Node));
-    struct Node *node2 = malloc(sizeof(struct Node));
+void append(List *list, int value) {
+    if (list->head == NULL) {
+        list->head = malloc(sizeof(Node));
+        list->head->next = NULL;
+        list->head->data = value;
+        list->size = 1;
+        return;
+    }
 
-    node1->data = 42;
-    node2->data = 24;
+    appendNode(list, list->head, value);
+}
 
-    node1->next = node2;
-    node2->next = NULL;
-    head = node1;
+void add(List *list, int value) {
+}
 
-    printList();
+void testCases() {
+    List *list = malloc(sizeof(List));
+    list->head = NULL;
+    append(list, 5);
+    add(list, 3);
+    append(list, 10);
+
+    assert(list->head->data == 3);
+    assert(list->head->next->data == 5);
+    assert(list->head->next->next->data == 10);
+    assert(list->size == 3);
+
+    printf(GREEN "tests passed, great job!" RESET);
+}
+
+int main() {
+    testCases();
 }
