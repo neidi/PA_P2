@@ -4,9 +4,7 @@
 #include "list.h"
 
 void testCases() {
-    List* list = malloc(sizeof(List));
-    list->head = NULL;
-    list->tail = NULL;
+    List* list = create_list();
 
     append(list, 5);
     append(list, 15);

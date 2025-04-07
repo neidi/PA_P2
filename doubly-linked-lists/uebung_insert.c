@@ -4,9 +4,7 @@
 #include "list.h"
 
 void testCases() {
-    List* list = malloc(sizeof(List));
-    list->head = NULL;
-    list->tail = NULL;
+    List* list = create_list();
 
     assert(insert(list, 0, 5) ==  1);
     assert(insert(list, 0, 15) == 1);
