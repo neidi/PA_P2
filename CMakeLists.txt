@@ -3,7 +3,7 @@ project(pointers C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Stack_fixed
+add_executable(Stack_dynamic
         stacks/main.c
-        stacks/stack_fixed.h
-        stacks/stack_fixed.c)
+        stacks/stack_dynamic.h
+        stacks/stack_dynamic.c)
