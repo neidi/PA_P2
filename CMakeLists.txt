@@ -10,5 +10,5 @@ add_executable(Stack_dynamic
 
 add_executable(Queue_dynamic
         queues/main.c
-        queues/queue_fixed.h
-        queues/queue_fixed.c)
+        queues/queue_dynamic.h
+        queues/queue_dynamic.c)
