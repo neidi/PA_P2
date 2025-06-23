@@ -4,10 +4,10 @@ project(pointers C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Aufgabe1
-        aufgabe1.c)
+        aufgabe1/aufgabe1.c)
 
 add_executable(Aufgabe2
-        aufgabe2.c)
+        aufgabe2/aufgabe2.c)
 
 add_executable(Aufgabe3
-        aufgabe3.c)
+        aufgabe3/aufgabe3.c)
