@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <stdbool.h>
-#include <printf.h>
+#include <stdio.h>
 #include "stack_dynamic.h"
 
 void testCasesDynamic(){
